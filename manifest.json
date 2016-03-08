@@ -1,0 +1,25 @@
+{
+	"background": {
+		"scripts": ["background.js"],
+        "persistent": true
+	},
+	"name": "ATG Dynamo Script",
+	"short_name": "DR",
+	"version": "0.0.1",
+	"manifest_version": 2,
+	"description": "Allow fire methods and change property values in the ATG Nucleus Components.",
+	"browser_action": {
+	    "default_icon": "images/icon-16.png",
+	    "default_title": "ATG Dynamo Script"
+	},
+	"permissions": [
+		"tabs",
+		"storage",
+		"http://*/*",
+		"https://*/*"
+	],
+	"icons": {
+		"16": "images/icon-16.png",
+		"128": "images/icon-128.png"
+	}
+}

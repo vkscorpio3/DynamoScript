@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ATG Dynamo Script</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="dynanoscript.js"></script>
+  </head>
+  <body>
+    <div class="row">
+        <div class="col-xs-4">
+            <div id="scripts-box" class="box">
+                <form class="form-heigth">
+                        <label>Enviroment:</label>
+                        <button type="button" class="btn btn-primary btn-xs btn-top" id="show-export-data">Export</button>
+                        <button type="button" class="btn btn-primary btn-xs btn-top" id="show-import-data">Import</button>
+                        <br/>
+                        <select id="enviroment" class="form-control">
+                            <option value="dev">Development</option>
+                            <option value="hml">Homologation</option>
+                            <option value="prd">Production</option>
+                        </select>
+                        <br/>
+                        <br/>
+                        <label>Scripts:</label>
+                        <br/>
+                    <div id="scripts-list-box">
+                        <select id="scriptsList" multiple="multiple" class="form-control"></select>
+                    </div>
+                </form>
+                <div id="scripts-actions-box">
+                    <button type="button" class="btn btn-primary" id="add-new-script">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        New
+                    </button>
+                    <button type="button" class="btn btn-primary" id="rename-script">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        Rename
+                    </button>
+                    <button type="button" class="btn btn-primary" id="duplicate-script">
+                        <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
+                        Duplicate
+                    </button>
+                    <button type="button" class="btn btn-primary" id="delete-script">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        Delete
+                    </button>
+                    <button type="button" class="btn btn-primary" id="run-script">
+                        <span class="glyphicon glyphicon-play glyphicon-align-left" aria-hidden="true"></span>
+                        Run
+                    </button>
+                    <button type="button" class="btn btn-primary" id="edit-servers">
+                        <span class="glyphicon glyphicon-edit glyphicon-align-left" aria-hidden="true"></span>
+                        Edit Servers
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-8">
+            <div id="logging-box" class="box"></div>
+            <div id="servers-box" class="box">
+                <form class="form-heigth">
+                    <div class="form-group div-servers-edit">
+                        <label>Servers:</label>
+                        <textarea id="servers-data" class="form-control textarea-servers-edit"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success" id="save-servers-data">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+                            Save
+                        </button>
+                        <button type="button" class="btn btn-danger" id="cancel-edit-servers">Cancel</button>
+                    </div>
+                <form>
+            </div>
+            <div id="import-export-box" class="box">
+                <form class="form-heigth">
+                    <div class="form-group div-servers-edit">
+                        <label>Dynamo Script Data:</label>
+                        <textarea id="import-export-data" class="form-control textarea-servers-edit"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success" id="import-data">
+                            <span class="glyphicon glyphicon-import" aria-hidden="true"></span>
+                            Import
+                        </button>
+                    </div>
+                <form>
+            </div>
+            <div id="script-box" class="box">
+                <form class="form-heigth">
+                    <div class="form-group form-group-80">
+                        <label>Script:</label>
+                        <textarea id="script-data" class="form-control textarea-servers-edit"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Servers:</label>
+                        <select class="form-control" id="target-servers">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success" id="save-script-data">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+                            Save
+                        </button>
+                        <button type="button" class="btn btn-danger" id="cancel-edit-script">Cancel</button>
+                    </div>
+                <form>
+            </div>
+        </div>
+    </div>
+  <body>
+</html>
