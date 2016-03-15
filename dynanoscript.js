@@ -424,6 +424,33 @@ DynamoScript = {
     getHelpText: function(text) {
         var j = JSON.parse(text);
         return JSON.stringify(j, null, 4)
+    },
+
+    init: function() {
+        var thisObj = this;
+
+        $('#add-new-script').click(function() { thisObj.addNewScript() });
+        $('#edit-servers').click(function() { thisObj.editServersData() });
+        $('#rename-script').click(function() { thisObj.renameScript() });
+        $('#duplicate-script').click(function() { thisObj.duplicateScript() });
+        $('#delete-script').click(function() { thisObj.deleteScript() });
+        $('#run-script').click(function() { thisObj.runScript() });
+        $('#save-servers-data').click(function() { thisObj.saveServersData() });
+        $('#scriptsList').click(function() { thisObj.scriptListClickEvent() });
+        $('#save-script-data').click(function() { thisObj.saveScriptData() });
+        $('#show-export-data').click(function() { thisObj.showExportData() });
+        $('#show-import-data').click(function() { thisObj.showImportData() });
+        $('#import-data').click(function() { thisObj.importData() });
+        $('#cancel-edit-servers').click(function() { thisObj.cleanWindow() });
+        $('#cancel-edit-script').click(function() { thisObj.cleanWindow() });
+
+        $('#enviroment').change(function() {
+            thisObj.cleanWindow();
+            thisObj.initEnviroment();
+            thisObj.listScriptsExtensionData();
+        });
+
+        chrome.runtime.sendMessage({"message": "get_extension_data"});
     }
 }
 
@@ -450,26 +477,5 @@ chrome.runtime.onMessage.addListener(
 );
 
 $(document).ready(function() {
-    $('#add-new-script').click(function() { DynamoScript.addNewScript() });
-    $('#edit-servers').click(function() { DynamoScript.editServersData() });
-    $('#rename-script').click(function() { DynamoScript.renameScript() });
-    $('#duplicate-script').click(function() { DynamoScript.duplicateScript() });
-    $('#delete-script').click(function() { DynamoScript.deleteScript() });
-    $('#run-script').click(function() { DynamoScript.runScript() });
-    $('#save-servers-data').click(function() { DynamoScript.saveServersData() });
-    $('#scriptsList').click(function() { DynamoScript.scriptListClickEvent() });
-    $('#save-script-data').click(function() { DynamoScript.saveScriptData() });
-    $('#show-export-data').click(function() { DynamoScript.showExportData() });
-    $('#show-import-data').click(function() { DynamoScript.showImportData() });
-    $('#import-data').click(function() { DynamoScript.importData() });
-    $('#cancel-edit-servers').click(function() { DynamoScript.cleanWindow() });
-    $('#cancel-edit-script').click(function() { DynamoScript.cleanWindow() });
-
-    $('#enviroment').change(function() {
-        DynamoScript.cleanWindow();
-        DynamoScript.initEnviroment();
-        DynamoScript.listScriptsExtensionData();
-    });
-
-    chrome.runtime.sendMessage({"message": "get_extension_data"});
+    DynamoScript.init();
 });
